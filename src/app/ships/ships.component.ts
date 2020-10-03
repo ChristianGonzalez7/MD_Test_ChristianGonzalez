@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipsComponent implements OnInit {
 
-  constructor() { }
+  showList: boolean;
+
+  constructor() {
+    this.showList = true;
+   }
 
   ngOnInit(): void {
   }

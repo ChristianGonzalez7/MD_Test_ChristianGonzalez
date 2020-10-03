@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'ships', component:ShipsComponent, 
   children: [
-    {path: 'starship-list', component:StarshipsListComponent, 
+    {path: 'starships-list', component:StarshipsListComponent, 
   children: [
     {path: 'starship', component:StarshipComponent}
   ]}]

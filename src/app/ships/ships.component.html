@@ -1,1 +1,15 @@
-<p>ships works!</p>
+<h1>Ships</h1>
+
+<div *ngIf="this.showList">
+    <button class="btn btn-dark">
+        <a [routerLink]="['/ships', 'starships-list']">Generate ships list!</a>
+    </button>
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+<div class="alert alert-danger" *ngIf="!this.showList">
+    Has realizado muchas peticiones en poco tiempo, vuelve a intentarlo en unos minutos.
+</div>
