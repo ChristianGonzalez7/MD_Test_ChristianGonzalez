@@ -1,13 +1,21 @@
-<h1>Ships</h1>
-
-<div *ngIf="this.showList">
-    <button class="btn btn-dark">
-        <a [routerLink]="['/ships', 'starships-list']">Generate ships list!</a>
-    </button>
-</div>
+<h1 id="title" class="text-center text-white">Ships</h1>
 
 <div>
-    <router-outlet></router-outlet>
+    <button class="btn buttons" (click)="previousButton()">Previous</button>
+    <button class="btn buttons" (click)="nextButton()">Next</button>
+</div>
+
+
+<div *ngIf="this.showList">
+    <div *ngFor="let ship of this.shipList; let i=index" id="ship-cards">
+        <div class="card text-center" style="width: 18rem;">
+            <img src="https://starwars-visualguide.com/#/starships/2.jpg" class="card-img-top" alt="Image not available">
+            <div class="card-body">
+                <p class="card-text">{{ship.name}}</p>
+                <a href="#" class="btn btn-primary">Show detail</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="alert alert-danger" *ngIf="!this.showList">

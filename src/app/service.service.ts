@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,7 +9,8 @@ export class ServiceService {
   username: string;
   password: string;
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+   }
 
 
   register (username: string, password: string) {
@@ -26,6 +28,10 @@ export class ServiceService {
     } else {
       alert('Wrong username/password')
     }
-}
+  };
+
+  listOfShips (url: string) {
+    return this.http.get(url).toPromise();
+  }
 
 }

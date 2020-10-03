@@ -1,0 +1,15 @@
+#title {
+    font-family: 'FontDutti' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+#ship-cards {
+    display: inline-block;
+    width: 20%;
+    margin: 2rem;
+    padding: 1rem;
+}
