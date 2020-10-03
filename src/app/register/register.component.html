@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div class="container">
+    <div class="inner-container col-md-6 col-md-offset-3">
+        <h2 id="register" class="text-white text-center">Register</h2>
+        <form novalidate [formGroup]="formulario" (ngSubmit)="callregister()">
+            <div class="form-group">
+                <label for="firstName" class="text-white">First name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName" [(ngModel)]="this.firstName" required />
+                <span class="text-danger" *ngIf="formulario.controls.firstName.errors?.required && formulario.controls.firstName.errors?.touched">First name is required</span>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="text-white">Last name</label>
+                <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName" [(ngModel)]="this.lastName" required />
+                <span class="text-danger" *ngIf="formulario.controls.lastName.errors?.required && formulario.controls.lastName.errors?.touched">Last name is required</span>
+            </div>
+            <div class="form-group">
+                <label for="username" class="text-white">Username</label>
+                <input type="text" name="username" id="username" class="form-control" formControlName="username" [(ngModel)]="this.username" required />
+                <span class="text-danger" *ngIf="formulario.controls.username.errors?.required && formulario.controls.username.errors?.touched">Username is required</span>
+            </div>
+            <div class="form-group">
+                <label for="password" class="text-white">Password</label>
+                <input type="password" name="password" id="password" class="form-control" formControlName="password" [(ngModel)]="this.password" required />
+                <span class="text-danger" *ngIf="formulario.controls.password.errors?.required && formulario.controls.password.errors?.touched">Password is required</span>
+            </div>
+            <div class="form-actions">
+                <input type="submit" [disabled]="!formulario.valid" value="Register" class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">
+                <img *ngIf="this.dataLoading" src="../../assets/images/loading.gif" />
+                <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="registrationModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" routerLink="/login">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Thank you {{this.firstName}}, your registration has been completed!</p>
+        </div>
+      </div>
+    </div>
+  </div>

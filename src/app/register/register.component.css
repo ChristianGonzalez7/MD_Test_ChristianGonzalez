@@ -1,0 +1,21 @@
+#register {
+    font-family: 'FontDutti' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    padding: 0.8rem;
+}
+
+.container {
+    margin-top: 3rem;
+}
+
+.inner-container {
+    margin-top: 3rem;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgb(34, 34, 34);
+    border-radius: 0.2rem;
+}

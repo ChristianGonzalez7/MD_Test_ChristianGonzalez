@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,6 @@ import { RegisterComponent } from './register/register.component';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './ships/starships-list/starships-list.component';
 import { StarshipComponent } from './ships/starships-list/starship/starship.component';
-import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +18,12 @@ import { ServiceComponent } from './service/service.component';
     ShipsComponent,
     StarshipsListComponent,
     StarshipComponent,
-    ServiceComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
