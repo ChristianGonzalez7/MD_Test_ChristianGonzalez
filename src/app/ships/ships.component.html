@@ -1,15 +1,15 @@
 <h1 id="title" class="text-center text-white">Ships</h1>
 
-<div>
-    <button class="btn buttons" (click)="previousButton()">Previous</button>
-    <button class="btn buttons" (click)="nextButton()">Next</button>
+<div id="btn-container">
+    <button class="btn btn-info buttons" (click)="previousButton()">Previous</button>
+    <button class="btn btn-info buttons" (click)="nextButton()">Next</button>
 </div>
 
 
-<div *ngIf="this.showList">
+<div *ngIf="this.showList" id="card-container">
     <div *ngFor="let ship of this.shipList; let i=index" id="ship-cards">
         <div class="card text-center" style="width: 18rem;">
-            <img src="https://starwars-visualguide.com/#/starships/2.jpg" class="card-img-top" alt="Image not available">
+            <img src="." class="card-img-top" alt="Image not available" class="text-muted">
             <div class="card-body">
                 <p class="card-text">{{ship.name}}</p>
                 <a href="#" class="btn btn-primary">Show detail</a>

@@ -33,5 +33,5 @@ export class ServiceService {
   listOfShips (url: string) {
     return this.http.get(url).toPromise();
   }
-
+  
 }
