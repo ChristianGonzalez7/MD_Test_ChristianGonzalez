@@ -22,7 +22,7 @@ export class ServiceService {
   }
 
   login (username: string, password: string) {
-    let getPassword = localStorage.getItem(username);
+    const getPassword = localStorage.getItem(username);
     if (getPassword === password) {
       return (true);
     } else {
@@ -33,5 +33,5 @@ export class ServiceService {
   listOfShips (url: string) {
     return this.http.get(url).toPromise();
   }
-  
+
 }

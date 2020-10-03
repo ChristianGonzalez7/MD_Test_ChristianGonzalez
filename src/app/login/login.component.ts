@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     let loginResponse = await this.service.login(this.username, this.password);
     this.dataLoading = false;
     if (loginResponse) {
-      this.route.navigate(['/ships'])
+      localStorage.setItem('logged', 'true');
+      this.route.navigate(['/ships']);
     }
     };
 
