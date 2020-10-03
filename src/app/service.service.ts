@@ -17,10 +17,6 @@ export class ServiceService {
     localStorage.setItem(username, password);
   }
 
-  clearLocalStorage () {
-    localStorage.clear();
-  }
-
   login (username: string, password: string) {
     const getPassword = localStorage.getItem(username);
     if (getPassword === password) {

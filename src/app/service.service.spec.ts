@@ -2,22 +2,22 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { LoginComponent } from './login.component';
+import { ServiceService } from './service.service';
 
 describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+  let component: ServiceService;
+  let fixture: ComponentFixture<ServiceService>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule ,HttpClientTestingModule],
-      declarations: [ LoginComponent ]
+      declarations: [ ServiceService ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(ServiceService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -25,4 +25,13 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  fdescribe("test for login function", () => {
+    it("should return true", () => {
+        localStorage.setItem('a', 'a');
+        const resolve = component.login('a', 'a');
+
+        expect(resolve).toEqual(true);
+    })
+  })
 });
