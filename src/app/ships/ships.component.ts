@@ -13,9 +13,11 @@ export class ShipsComponent implements OnInit {
   nextUrl: string;
   showList: boolean;
   shipList: any;
+  shipDetail: any;
 
   constructor(private service: ServiceService) {
     this.showList = true;
+    this.shipDetail = new Object;
    }
 
   async ngOnInit() {
@@ -25,19 +27,23 @@ export class ShipsComponent implements OnInit {
     this.previousUrl = request['previous'];
   }
 
-  async nextButton () {
-    const request = await this.service.listOfShips(this.nextUrl);
-    this.shipList = request['results'];
-    this.nextUrl = request['next'];
-    this.previousUrl = request['previous'];
-    console.log(this.shipList);
-    console.log(this.actualUrl);
+  async previousAndNextButtons ($event) {
+    if ($event.target.dataset.type === 'next') {
+      const request = await this.service.listOfShips(this.nextUrl);
+      this.shipList = request['results'];
+      this.nextUrl = request['next'];
+      this.previousUrl = request['previous'];
+    } else if ($event.target.dataset.type === 'previous') {
+      const request = await this.service.listOfShips(this.previousUrl);
+      this.shipList = request['results'];
+      this.nextUrl = request['next'];
+      this.previousUrl = request['previous'];
+    }
   }
 
-  async previousButton () {
-    // this.actualUrl = await this.service.listOfShips(`${this.actualUrl}`)['previous'];
-    // let request = await this.service.listOfShips(`${this.actualUrl}`);
-    // this.shipList = request['results'];
+  async showShipDetail($event) {
+    const id = parseInt($event.target.id) + 2;
+    this.shipDetail = await this.service.listOfShips(`https://swapi.dev/api/starships/${id}/`);
   }
 
 }

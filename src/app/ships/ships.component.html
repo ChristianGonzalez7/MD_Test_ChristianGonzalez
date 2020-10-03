@@ -1,8 +1,8 @@
 <h1 id="title" class="text-center text-white">Ships</h1>
 
 <div id="btn-container">
-    <button class="btn btn-info buttons" (click)="previousButton()">Previous</button>
-    <button class="btn btn-info buttons" (click)="nextButton()">Next</button>
+    <button class="btn btn-info buttons" data-type="previous" (click)="previousAndNextButtons($event)">Previous</button>
+    <button class="btn btn-info buttons" data-type="next" (click)="previousAndNextButtons($event)">Next</button>
 </div>
 
 
@@ -12,11 +12,37 @@
             <img src="." class="card-img-top" alt="Image not available" class="text-muted">
             <div class="card-body">
                 <p class="card-text">{{ship.name}}</p>
-                <a href="#" class="btn btn-primary">Show detail</a>
+                <a href="#" class="btn btn-primary" [id]="i" (click)="showShipDetail($event)" data-toggle="modal" data-target="#staticBackdrop">Show detail</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{shipDetail.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><b>Model:</b> {{shipDetail.model}}</p>
+          <p><b>Manufacturer:</b> {{shipDetail.manufacturer}}</p>
+          <p><b>Cost in credits:</b> U${{shipDetail.cost_in_credits}}</p>
+          <p><b>Crew:</b> {{shipDetail.crew}}</p>
+          <p><b>Passengers:</b> {{shipDetail.passengers}}</p>
+          <p><b>Consumables:</b> {{shipDetail.consumables}}</p>
+          <p><b>Hyperdrive rating:</b> {{shipDetail.hyperdrive_rating}}</p>
+          <p><b>Starship class:</b> {{shipDetail.starship_class}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="alert alert-danger" *ngIf="!this.showList">
     Has realizado muchas peticiones en poco tiempo, vuelve a intentarlo en unos minutos.

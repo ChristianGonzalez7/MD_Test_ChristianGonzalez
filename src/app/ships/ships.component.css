@@ -22,6 +22,12 @@
     width: 20%;
     margin: 2rem;
     padding: 1rem;
+    font-family: 'FontDutti' !important;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 }
 
 #btn-container {
