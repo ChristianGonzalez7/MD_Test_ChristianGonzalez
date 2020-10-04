@@ -1,3 +1,4 @@
+import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 
@@ -14,6 +15,7 @@ export class ShipsComponent implements OnInit {
   showList: boolean;
   shipList: any;
   shipDetail: any;
+  httpRequestedDate: any;
 
   constructor(private service: ServiceService) {
     this.showList = true;
@@ -21,6 +23,7 @@ export class ShipsComponent implements OnInit {
    }
 
   async ngOnInit() {
+    this.httpRequestedDate = new Date;
     const request = await this.service.listOfShips('https://swapi.dev/api/starships/?page=1');
     this.shipList = request['results'];
     this.nextUrl = request['next'];
@@ -28,17 +31,27 @@ export class ShipsComponent implements OnInit {
   }
 
   async previousAndNextButtons ($event) {
-    if ($event.target.dataset.type === 'next') {
-      const request = await this.service.listOfShips(this.nextUrl);
-      this.shipList = request['results'];
-      this.nextUrl = request['next'];
-      this.previousUrl = request['previous'];
-    } else if ($event.target.dataset.type === 'previous') {
-      const request = await this.service.listOfShips(this.previousUrl);
-      this.shipList = request['results'];
-      this.nextUrl = request['next'];
-      this.previousUrl = request['previous'];
+
+    const httpActualRequest = new Date;
+
+    const httpLastRequestPlusFive = (this.httpRequestedDate + (5 * 60 * 1000))
+    
+    if (httpActualRequest > httpLastRequestPlusFive) {
+      if ($event.target.dataset.type === 'next') {
+        const request = await this.service.listOfShips(this.nextUrl);
+        this.shipList = request['results'];
+        this.nextUrl = request['next'];
+        this.previousUrl = request['previous'];
+      } else if ($event.target.dataset.type === 'previous') {
+        const request = await this.service.listOfShips(this.previousUrl);
+        this.shipList = request['results'];
+        this.nextUrl = request['next'];
+        this.previousUrl = request['previous'];
+      }
+    } else {
+      this.showList = !this.shipList;
     }
+
   }
 
   async showShipDetail($event) {

@@ -36,6 +36,7 @@
           <p><b>Consumables:</b> {{shipDetail.consumables}}</p>
           <p><b>Hyperdrive rating:</b> {{shipDetail.hyperdrive_rating}}</p>
           <p><b>Starship class:</b> {{shipDetail.starship_class}}</p>
+          <p><b>MGLT:</b> {{shipDetail.MGLT}}</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -44,6 +45,11 @@
     </div>
   </div>
 
-<div class="alert alert-danger" *ngIf="!this.showList">
-    Has realizado muchas peticiones en poco tiempo, vuelve a intentarlo en unos minutos.
-</div>
+<!-- <div class="alert alert-danger" *ngIf="!this.showList">
+  Por favor, vuelve a intentarlo en unos minutos.
+</div> -->
+
+  <div class="alert-container" *ngIf="!this.showList">
+    <h1 class="text-center">Request time exceeded</h1>
+    <p class="text-center pt-3">Please try again in a few minutes...</p>
+  </div>
