@@ -22,11 +22,9 @@
     width: 20%;
     margin: 2rem;
     padding: 1rem;
-    font-family: 'FontDutti' !important;
-    font-style: normal;
-    font-weight: bold;
-    font-variant: normal;
-    text-transform: none;
+    font-family: "BasisGrotesque-Bold-Pro";
+    line-height: 24px;
+    font-weight: bolder;
     line-height: 1;
 }
 
