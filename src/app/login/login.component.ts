@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     if (loginResponse) {
       localStorage.setItem('logged', 'true');
       this.route.navigate(['/ships']);
-    }
+    } else return false;
     };
 
 };
