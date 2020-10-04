@@ -24,6 +24,8 @@ export class ShipsComponent implements OnInit {
 
   async ngOnInit() {
     this.httpRequestedDate = new Date;
+
+    // brings starships info when entering web for the first time
     const request = await this.service.listOfShips('https://swapi.dev/api/starships/?page=1');
     this.shipList = request['results'];
     this.nextUrl = request['next'];
@@ -33,9 +35,9 @@ export class ShipsComponent implements OnInit {
   async previousAndNextButtons ($event) {
 
     const httpActualRequest = new Date;
-
     const httpLastRequestPlusFive = (this.httpRequestedDate + (5 * 60 * 1000))
     
+    // controls that requests should be done every 5 minutes
     if (httpActualRequest > httpLastRequestPlusFive) {
       this.showList = true;
       if ($event.target.dataset.type === 'next') {
@@ -55,6 +57,7 @@ export class ShipsComponent implements OnInit {
 
   }
 
+  // shows detailed info about one particular starship by their id
   async showShipDetail($event) {
     const id = parseInt($event.target.id) + 2;
     this.shipDetail = await this.service.listOfShips(`https://swapi.dev/api/starships/${id}/`);

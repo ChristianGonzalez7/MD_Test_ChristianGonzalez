@@ -27,10 +27,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // calls login method in service
   async callLogin() {
     this.dataLoading = true;
     let loginResponse = await this.service.login(this.username, this.password);
     this.dataLoading = false;
+    // check if username and password match with localstorage info
     if (loginResponse) {
       localStorage.setItem('logged', 'true');
       this.route.navigate(['/ships']);

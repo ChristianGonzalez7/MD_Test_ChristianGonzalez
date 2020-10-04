@@ -12,11 +12,12 @@ export class ServiceService {
   constructor(private http: HttpClient) {
    }
 
-
+  // register username and password in localstorage
   register (username: string, password: string) {
     localStorage.setItem(username, password);
   }
 
+  // check if username and password matches with localstorage info
   login (username: string, password: string) {
     const getPassword = localStorage.getItem(username);
     if (getPassword === password) {
@@ -26,6 +27,7 @@ export class ServiceService {
     }
   };
 
+  // brings a list of starships in swapi's web
   listOfShips (url: string) {
     return this.http.get(url).toPromise();
   }

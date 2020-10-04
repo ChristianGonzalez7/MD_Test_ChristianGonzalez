@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private service : ServiceService) {
     this.dataLoading = false;
+    //form validators
     this.formulario = new FormGroup({
       firstName: new FormControl('', [Validators.required]), 
       lastName: new FormControl('', [Validators.required]), 
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // calls register method in service and stores usarname&password in localstorge
   callregister() {
     this.service.register(this.username, this.password);
   }
