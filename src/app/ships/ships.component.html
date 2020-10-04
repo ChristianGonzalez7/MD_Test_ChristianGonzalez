@@ -8,8 +8,8 @@
 
 <div *ngIf="this.showList" id="card-container">
     <div *ngFor="let ship of this.shipList; let i=index" id="ship-cards">
-        <div class="card text-center" style="width: 18rem;">
-            <img src="." class="card-img-top" alt="Image not available" class="text-muted">
+        <div class="card text-center" >
+            <img src="../../assets/images/{{i}}.jpg" style="height: 15rem;" class="card-img-top text-muted text-center" alt="Image not available">
             <div class="card-body">
                 <p class="card-text">{{ship.name}}</p>
                 <a href="#" class="btn btn-primary" [id]="i" (click)="showShipDetail($event)" data-toggle="modal" data-target="#staticBackdrop">Show detail</a>
@@ -51,5 +51,5 @@
 
   <div class="alert-container" *ngIf="!this.showList">
     <h1 class="text-center">Request time exceeded</h1>
-    <p class="text-center pt-3">Please try again in a few minutes...</p>
+    <p class="text-center pt-3">Please try again in 5 minutes...</p>
   </div>

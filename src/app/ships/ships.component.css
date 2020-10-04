@@ -41,6 +41,11 @@
     margin: 0 auto;
 }
 
+.card-img-top {
+    line-height: 15rem;
+    text-align: center;
+}
+
 .alert-container {
     width: 25rem; 
     height: 12rem; 

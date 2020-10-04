@@ -37,6 +37,7 @@ export class ShipsComponent implements OnInit {
     const httpLastRequestPlusFive = (this.httpRequestedDate + (5 * 60 * 1000))
     
     if (httpActualRequest > httpLastRequestPlusFive) {
+      this.showList = true;
       if ($event.target.dataset.type === 'next') {
         const request = await this.service.listOfShips(this.nextUrl);
         this.shipList = request['results'];
@@ -49,7 +50,7 @@ export class ShipsComponent implements OnInit {
         this.previousUrl = request['previous'];
       }
     } else {
-      this.showList = !this.shipList;
+      this.showList = false;
     }
 
   }

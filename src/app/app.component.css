@@ -1,0 +1,33 @@
+* {
+    font-family: "BasisGrotesque-Bold-Pro";
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+
+#a-container {
+    padding-left: 1.5rem;
+}
+
+#facebook-logo {
+    background-image: url(../assets/images/facebook-logo.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 1rem;
+}
+
+#instagram-logo {
+    background-image: url(../assets/images/instagram-logo.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 1rem;
+}
+
+.navbar-brand {
+    padding: 0.7rem;
+}
